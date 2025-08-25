@@ -1,0 +1,94 @@
+package com.saubh.swipeexpandanim.morphmotion
+
+val json = """
+    {
+      ConstraintSets: {
+        start: {
+          mic: {
+            width: 300,
+            height: 300,
+            top: ['parent', 'top'],
+            bottom: ['parent', 'bottom', 200],
+            start: ['parent', 'start'],
+            end: ['parent', 'end']
+          },
+          aiScreen: {
+            width: 'spread',
+            height: 'spread',
+            alpha: 1,
+            top: ['parent', 'top'],
+            bottom: ['parent', 'bottom'],
+            start: ['parent', 'start'],
+            end: ['parent', 'end']
+          },
+          details: {
+            width: 'spread',
+            height: 'wrap',
+            top: ['mic', 'bottom'],
+            start: ['parent', 'start'],
+            end: ['parent', 'end']
+          },
+          loginScreen: {
+            width: 'spread',
+            height: 'spread',
+            top: ['parent', 'top'],
+            bottom: ['parent', 'bottom'],
+            start: ['parent', 'start'],
+            end: ['parent', 'end']
+          },
+          navigationBar: {
+            bottom: ['parent', 'bottom', -200],   // 👈 hidden off-screen at start
+            start: ['parent', 'start'],
+            end: ['parent', 'end']
+          }
+        },
+
+        end: {
+          mic: {
+            width: 140,
+            height: 80,
+            bottom: ['navigationBar', 'top', -4],
+            start: ['parent', 'start', -24]
+          },
+          aiScreen: {
+            width: 'spread',
+            height: 325,
+            alpha: 1,
+            top: ['parent', 'bottom'],
+            bottom: ['parent', 'bottom'],
+            start: ['parent', 'start'],
+            end: ['parent', 'end']
+          },
+          details: {
+            width: 'wrap',
+            height: 'wrap',
+            start: ['mic', 'end', 8],
+            top: ['mic', 'top'],
+            bottom: ['mic', 'bottom']
+          },
+          loginScreen: {
+            width: 'spread',
+            height: 'spread',
+            top: ['parent', 'top'],
+            bottom: ['parent', 'bottom'],
+            start: ['parent', 'start'],
+            end: ['parent', 'end']
+          },
+          navigationBar: {
+            bottom: ['parent', 'bottom'],
+            start: ['parent', 'start'],
+            end: ['parent', 'end']
+          }
+        }
+      },
+
+      Transitions: {
+        default: {
+          from: 'start',
+          to: 'end',
+          pathMotionArc: 'none'
+        }
+      }
+    }
+
+""".trimIndent()
